@@ -9,10 +9,14 @@ const SearchBar = () => {
         setSearchValue(event.target.value)
     }
 
+    const handleClearClick = () => {
+        setSearchValue("")
+    }
+
     return (
         <div>
             <input type="text" value={searchValue} onChange={handleInputChange} />
-            {searchValue}
+            <button onClick={handleClearClick}>Clear </button>
         </div>
     )
 }
