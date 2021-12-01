@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './CountButton.css'
 
 const CountButton = (props) => {
@@ -15,9 +15,18 @@ const CountButton = (props) => {
         borderRadius: props.borderRadius
     }
 
+
+    useEffect(() => {
+        console.log("Use Effect func called")
+        if (currentCount > 10) {
+            setCurrentCount(0)
+        }
+    }, [currentCount])
+
+
     return (
     <div>
-        <button style={buttonStyles} onClick={handleClick}>+{props.incrementBy}</button>
+        <button onClick={handleClick}>+{props.incrementBy}</button>
         <div className={"count-display"}>{currentCount}</div>
     </div>
     )

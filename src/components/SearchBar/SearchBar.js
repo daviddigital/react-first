@@ -1,16 +1,9 @@
 import React, { useState } from 'react'
 import './SearchBar.css'
 
-const tickers = [
-    'AAPL',
-    'FB',
-    'MSFT',
-    'NET',
-    'GOOG',
-    'AAN'
-]
 
-const SearchBar = () => { 
+
+const SearchBar = (props) => { 
 
     const [searchValue, setSearchValue] = useState("")
 
@@ -22,13 +15,8 @@ const SearchBar = () => {
         setSearchValue("")
     }
 
-    console.log(tickers.filter((ticker) => {
-        return ticker.includes(searchValue)
-    })
-    )
-
-    const filteredTickers = tickers.filter((ticker) => {
-        return ticker.includes(searchValue)
+    const filteredProducts = props.productData.filter((product) => {
+        return product.includes(searchValue)
     })
 
 
@@ -39,8 +27,8 @@ const SearchBar = () => {
             {searchValue && <button onClick={handleClearClick}>Clear </button>}
             
             <ul>
-            {filteredTickers.map((ticker) => {
-                return <li key={ticker}>{ticker}</li>
+            {filteredProducts.map((product) => {
+                return <li key={product}>{product}</li>
             })}
             </ul>
         </div>
