@@ -14,8 +14,9 @@ const App = () => {
                     <thead>
                         <tr>
                             <th>Ticker </th>
+                            <th>Name </th>
                             <th>Price </th>
-                            <th>Date </th>
+                            <th>Updated </th>
                         </tr>
                     </thead> 
                     <tbody>
