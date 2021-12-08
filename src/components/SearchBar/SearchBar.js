@@ -1,7 +1,19 @@
 import React, { useState } from 'react'
 import './SearchBar.css'
 
+// const [productsState, setProductsState] = useState([])
 
+//     useEffect(() => {
+
+//         fetch('https://fakestoreapi.com/products')
+//             .then(res=>res.json())
+//             .then((productsArray) => {
+//                 const newProductsState = productsArray.map((product) => {
+//                     return product.title
+//                 })
+//                 setProductsState(newProductsState)
+//             })
+//     },[])
 
 const SearchBar = (props) => { 
 

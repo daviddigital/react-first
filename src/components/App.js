@@ -1,31 +1,30 @@
 import React, { useEffect, useState } from 'react'
-import CountButton from './CountButton/CountButton'
-import SearchBar from './SearchBar/SearchBar'
+// import CountButton from './CountButton/CountButton'
+// import SearchBar from './SearchBar/SearchBar'
+// import Button from './Button/Button'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import StockRow from './StockRow/StockRow'
 
 const App = () => {
-
-    const [productsState, setProductsState] = useState([])
-
-    useEffect(() => {
-
-        fetch('https://fakestoreapi.com/products')
-            .then(res=>res.json())
-            .then((productsArray) => {
-                const newProductsState = productsArray.map((product) => {
-                    return product.title
-                })
-                setProductsState(newProductsState)
-            })
-    },[])
     return (
         
-        <div> 
-
-            {productsState.length > 0 ? <SearchBar productData={productsState} /> : "Loading..."}
-            
-
-            {/* <CountButton incrementBy={5} buttonColor={"blue"} /> */}
-
+        <div className = "App"> 
+            <div className="container"> 
+                <table className="table mt-4">
+                    <thead>
+                        <tr>
+                            <th>Ticker </th>
+                            <th>Price </th>
+                            <th>Date </th>
+                        </tr>
+                    </thead> 
+                    <tbody>
+                        <StockRow ticker="goog" />
+                        <StockRow ticker="msft" />
+                        <StockRow ticker="tsla" />
+                    </tbody>
+                </table>
+            </div>
         </div>
         
     )
