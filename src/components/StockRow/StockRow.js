@@ -10,7 +10,7 @@ class StockRow extends Component {
     }
 
     componentDidMount() {
-        // query the API
+        // query the API, test details below
         const api_token = 'X3ZH5F4C7ZCUID7K'
         const base_url = 'https://www.alphavantage.co/query?'
     
@@ -19,9 +19,8 @@ class StockRow extends Component {
         fetch(url)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data)
             this.setState({
-                data: data[data.length - 1]
+                data: data["Time Series (Daily)"]
             }) 
         })
 
@@ -32,12 +31,17 @@ class StockRow extends Component {
 
     return (
     <tr>
+        {console.log(this.state.data)}
+        {/* <td>{this.props.ticker}</td>
+        <td>{this.state.data["4. close"]}</td> 
+        <td>{this.state.data}</td> */}
+
         <td>{this.props.ticker}</td>
-        <td>{this.state.data.name}</td>
-        <td>{this.state.data.price}</td>
-        <td>{this.state.data.date}</td>
+        <td>$100</td> 
+        <td>12/01/2021</td>
       </tr>
     )
 }
 }
 export default StockRow
+
